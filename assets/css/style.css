@@ -350,6 +350,19 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 160px;
   }
 }
+
+@media only screen and (min-width:1367px) {
+  #hero { background-position: 100%;}
+}
+
+@media only screen and (max-width:1366px) {
+  #hero { background-position: 80%;}
+}
+
+@media only screen and (max-width:970px) {
+  #hero { background-position: 60%;}
+}
+
 #hero:before {
   content: "";
   background: rgba(255, 255, 255, 0.6);
