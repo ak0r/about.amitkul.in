@@ -1,0 +1,506 @@
+/**
+* Template Name: OnePageIntro
+* Template URL: https://tech.amitkul.in/
+* Author: Amit Kulkarni for https://tech.amitkul.in/
+* License: https://tech.amitkul.in/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: 'Urbanist', sans-serif;
+  color: #363636;
+}
+
+a {
+  color: #e17869;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #df5441;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+
+.light-mode {  
+  --color-bg:#2D2C2A;
+  --color-text: #FBF5F5;
+  --color-accent: #df5441;  
+  --color-primary: #f08777;  
+  --color-secondary: #e86e5c;  
+  --color-social:#444545;
+ }
+   
+ .dark-mode {  
+  --color-bg:#e6e1de;
+  --color-text: #0f0c13; 
+  --color-accent: #e17869;  
+  --color-primary: #df5441;  
+  --color-secondary: #e4ada4;  
+  --color-social:#d9cbca;
+ }  
+
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #e4ada4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+.back-to-top i {
+  font-size: 28px;
+  color: #e6e1de;
+  line-height: 0;
+}
+.back-to-top:hover {
+  background: #e17869;
+  color: #e6e1de;
+}
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Dark mode switch -- From uiverse.io by @victoryamaykin
+--------------------------------------------------------------*/
+.switch {
+  position: fixed;
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  right: 15px;
+  top: 15px;
+ }
+ 
+ .switch input {
+  display: none;
+ }
+ 
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3C3C3C;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+ }
+ 
+ .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+ }
+ 
+ input:checked + .slider {
+  background-color: #0E6EB8;
+ }
+ 
+ input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+ }
+ 
+ input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(85px);
+ }
+ 
+ /*------ ADDED CSS ---------*/
+ .slider:after {
+  content: 'Light Mode';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+ }
+ 
+ input:checked + .slider:after {
+  content: 'Dark Mode';
+ }
+ 
+ /*--------- END --------*/
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #e17869;
+  border-top-color: #e6e1de;
+  border-bottom-color: #e6e1de;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 15px;
+  overflow-y: auto;
+}
+@media (max-width: 992px) {
+  #header {
+    width: 300px;
+    background: #e6e1de;
+    border-right: 1px solid #e6e9ec;
+    left: -300px;
+  }
+}
+
+@media (min-width: 992px) {
+  #main {
+    margin-left: 100px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.nav-menu {
+  padding: 0;
+  display: block;
+}
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+.nav-menu a, .nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: #0f0c13;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+  border-radius: 50px;
+  background: #e6e1de;
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.nav-menu a i, .nav-menu a:focus i {
+  font-size: 20px;
+}
+.nav-menu a span, .nav-menu a:focus span {
+  padding: 0 5px 0 7px;
+  color: #0f0c13;
+}
+@media (min-width: 992px) {
+  .nav-menu a, .nav-menu a:focus {
+    width: 56px;
+  }
+  .nav-menu a span, .nav-menu a:focus span {
+    display: none;
+    color: #e6e1de;
+  }
+}
+.nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover > a {
+  color: #e6e1de;
+  background: #e17869;
+}
+.nav-menu a:hover span, .nav-menu .active span, .nav-menu .active:focus span, .nav-menu li:hover > a span {
+  color: #e6e1de;
+}
+.nav-menu a:hover, .nav-menu li:hover > a {
+  width: 100%;
+  color: #e6e1de;
+}
+.nav-menu a:hover span, .nav-menu li:hover > a span {
+  display: block;
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 5px;
+}
+.mobile-nav-toggle i {
+  color: #45505b;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+.mobile-nav-active #header {
+  left: 0;
+}
+.mobile-nav-active .mobile-nav-toggle {
+  color: #e6e1de;
+  background-color: #e17869;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/hero-bg.jpg") top right no-repeat;
+  /*background-color: #e8e8e8;*/
+  background-size: cover;
+  position: relative;
+}
+@media (min-width: 992px) {
+  #hero {
+    padding-left: 160px;
+  }
+}
+#hero:before {
+  content: "";
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+#hero h1 {
+  margin: 0;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 60px;
+  padding: 20px 0 20px 0;
+  color: #0f0c13;
+}
+#hero p {
+  color: #0f0c13;
+  margin: 15px 0 0 0;
+  font-size: 32px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px 0 15px 0;
+}
+#hero p span {
+  color: #e17869;
+  letter-spacing: 1.2px;
+}
+#hero .social-links {
+  margin-top: 30px;
+}
+#hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: #444545;
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+#hero .social-links a:hover {
+  color: #e17869;
+}
+@media (max-width: 992px) {
+  #hero {
+    text-align: center;
+  }
+  #hero h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  #hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+}
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #0563bb;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #e6e1de;
+  color: #0f0c13;
+  font-size: 14px;
+  text-align: center;
+  padding: 100px 0 50px 0;
+}
+#footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+#footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+#footer .social-links {
+  margin: 0 0 40px 0;
+}
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #e17869;
+  color: #e6e1de;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+#footer .social-links a:hover {
+  background: #e06655;
+  color: #e6e1de;
+  text-decoration: none;
+}
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+#footer .credits {
+  font-size: 13px;
+}
