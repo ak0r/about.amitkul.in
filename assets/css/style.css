@@ -24,11 +24,11 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Libre Baskerville', serif;
 }
 
 
-.light-mode {  
+.dark-mode {  
   --color-bg:#2D2C2A;
   --color-text: #FBF5F5;
   --color-accent: #df5441;  
@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   --color-social:#444545;
  }
    
- .dark-mode {  
+ .light-mode {  
   --color-bg:#e6e1de;
   --color-text: #0f0c13; 
   --color-accent: #e17869;  
@@ -402,9 +402,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 20px;
   transition: 0.3s;
 }
+
+#hero .typed{
+  font-family: 'Kalam', cursive;
+}
+
 #hero .social-links a:hover {
   color: #e17869;
 }
+
 @media (max-width: 992px) {
   #hero {
     text-align: center;
@@ -479,15 +485,19 @@ section {
   font-size: 36px;
   font-weight: 700;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   padding: 0;
   margin: 0 0 15px 0;
 }
 #footer p {
   font-size: 15;
+  font-family: 'Urbanist', sans-serif;
   font-style: italic;
   padding: 0;
   margin: 0 0 40px 0;
+}
+#footer p.subheading{
+  font-family: 'Kalam', cursive;
 }
 #footer .social-links {
   margin: 0 0 40px 0;
@@ -513,7 +523,9 @@ section {
 }
 #footer .copyright {
   margin: 0 0 5px 0;
+  font-family: 'Urbanist', sans-serif;
 }
 #footer .credits {
   font-size: 13px;
+  font-family: 'Kalam', cursive;
 }
