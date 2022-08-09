@@ -9,3 +9,6 @@ Version: 1.2
   - Readyness for dark mode switch
   - Changed Fonts
   - Updated Links
+
+Version 1.2.1
+  - Fixed typos
